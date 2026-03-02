@@ -135,9 +135,133 @@ Hierarchy is how you tell the user "look here first, then here, then here." You 
 
 ---
 
+## Review Output Format
+
+When performing a design review, **always produce a timestamped markdown document**. Save it to the
+project directory or a location the user specifies.
+
+### File Naming
+
+```
+{Subject}-Design-Review-{YYYY-MM-DD}.md
+```
+
+Examples:
+- `Dashboard-Design-Review-2026-03-02.md`
+- `Craigslist-Design-Review-2026-03-02.md`
+- `Checkout-Flow-Design-Review-2026-03-02.md`
+
+Use the current date. Use PascalCase with hyphens for the subject. If the user specifies a path,
+save there. Otherwise save in the current working directory.
+
+### Document Structure
+
+Every review document follows this exact structure:
+
+```markdown
+# Design Review: {Subject}
+*Reviewed: {YYYY-MM-DD}*
+
+{1-2 sentence context about what's being reviewed and why it's interesting.}
+
+---
+
+## 1. Purpose & Context
+{Analysis...}
+
+> **Summary:** {One paragraph distilling the key finding from this section.}
+
+---
+
+## 2. Structure (Information Architecture)
+{Analysis with ### What works and ### What fails subsections...}
+
+> **Summary:** {One paragraph.}
+
+---
+
+## 3. Hierarchy (Visual Communication)
+{Analysis. Include the squint test result. Use a table for specific issues
+with columns: Problem | Principle Violated | Severity (0-4).}
+
+> **Summary:** {One paragraph.}
+
+---
+
+## 4. Interaction (Behavioral Design)
+{Analysis with ### What works and ### What fails subsections...}
+
+> **Summary:** {One paragraph.}
+
+---
+
+## 5. Polish (Craft Quality)
+{Analysis of spacing, typography, color, edge cases...}
+
+> **Summary:** {One paragraph.}
+
+---
+
+## 6. Summary Scorecard (Nielsen's Heuristics)
+
+| Heuristic | Score (0-4) | Notes |
+|---|---|---|
+| 1. Visibility of system status | {n} | {brief note} |
+| 2. Match real world | {n} | {brief note} |
+| 3. User control & freedom | {n} | {brief note} |
+| 4. Consistency | {n} | {brief note} |
+| 5. Error prevention | {n} | {brief note} |
+| 6. Recognition over recall | {n} | {brief note} |
+| 7. Flexibility & efficiency | {n} | {brief note} |
+| 8. Aesthetic & minimalist | {n} | {brief note} |
+| 9. Error recovery | {n} | {brief note} |
+| 10. Help & documentation | {n} | {brief note} |
+
+> **Summary:** {One paragraph highlighting the worst scores and best scores.}
+
+---
+
+## Concrete Recommendations
+{Numbered list of specific, actionable fixes. Each recommendation names
+the element, the change, and the principle it addresses.}
+
+> **Summary:** {One paragraph distilling the recommendations.}
+```
+
+### Section Summary Rules
+
+- Every section (1-6, scorecard, recommendations) ends with a blockquote summary
+- Format: `> **Summary:** {paragraph}`
+- The summary should stand alone — someone reading only the summaries should understand the full review
+- Be specific, not vague. Name elements, reference principles, state severity.
+- Write in plain language. No jargon without explanation.
+
+### Severity Scoring
+
+Use Nielsen's 0-4 scale consistently throughout:
+- **0** — No issue
+- **1** — Cosmetic issue only
+- **2** — Minor usability issue
+- **3** — Major usability issue (blocking)
+- **4** — Usability catastrophe (must fix)
+
+### Optional: The Honest Counter-Argument
+
+If the design has a legitimate reason for its choices (performance, brand identity, specific user
+context), include a final section acknowledging that tension:
+
+```markdown
+## The Honest Counter-Argument
+{Why this design might work despite the issues found...}
+
+> **Summary:** {One paragraph.}
+```
+
+---
+
 ## Design Critique Framework
 
-When asked to review or critique a design, evaluate in this order:
+When evaluating (whether for the review document or inline feedback), follow this order:
 
 ### 1. Purpose & Context (before looking at pixels)
 - What is the user trying to accomplish?
@@ -193,6 +317,6 @@ When building or reviewing, watch for these common failures:
 
 When building: Use the principles proactively. Before writing any UI code, identify the primary user goal, the one most important action, and the information hierarchy. Build from that foundation.
 
-When critiquing: Use the critique framework above. Be specific. Reference the principle by name. Suggest a fix, not just a problem.
+When critiquing: Use the critique framework and produce a review document. Be specific. Reference the principle by name. Suggest a fix, not just a problem.
 
 When in doubt: Remove elements until the design breaks. The version right before it broke is probably correct (Rams #10).

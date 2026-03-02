@@ -25,23 +25,32 @@ Every critique names the element, references the violated principle, and suggest
 
 Works on any UI code — components, pages, layouts, full applications. No prerequisites.
 
-## When It Triggers
+## What It Produces
 
-- "Does this look good?"
-- "Design review" / "UI feedback"
-- "Improve the design" / "Make it look better"
-- Any request involving visual quality, usability, or design decisions
+A **timestamped markdown document** saved to the project directory:
 
-## How It Evaluates
+```
+{Subject}-Design-Review-{YYYY-MM-DD}.md
+```
 
-The 6-step critique framework, in order:
+The document follows a fixed structure:
 
 1. **Purpose & Context** — What is the user trying to accomplish? What's the ONE most important action?
 2. **Structure** — Is content organized by user goals? Can a user orient themselves instantly? (trunk test)
 3. **Hierarchy** — Clear visual priority? Does hierarchy match task priority? (squint test)
 4. **Interaction** — Clear affordances and signifiers? Feedback for every action? Errors recoverable?
 5. **Polish** — Consistent spacing? Intentional typography? Edge cases handled?
-6. **Specificity** — Every finding names the element, the principle, and a concrete fix. No vague "taste."
+6. **Summary Scorecard** — Nielsen's 10 heuristics scored 0-4 in a table
+7. **Concrete Recommendations** — Numbered, actionable fixes with principle references
+
+Every section ends with a `> **Summary:**` blockquote — a standalone paragraph so someone reading only the summaries gets the full picture.
+
+## When It Triggers
+
+- "Does this look good?"
+- "Design review" / "UI feedback"
+- "Improve the design" / "Make it look better"
+- Any request involving visual quality, usability, or design decisions
 
 ## Reference Files
 
