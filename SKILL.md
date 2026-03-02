@@ -1,5 +1,5 @@
 ---
-name: design-principles
+name: design-review
 description: Apply world-class design principles when building, reviewing, or critiquing UI and frontend interfaces. Use this skill whenever creating components, screens, layouts, or applications — and especially when the user asks for design feedback, critique, or review of any visual interface. Also trigger when the user mentions "does this look good", "design review", "UI feedback", "improve the design", "make it look better", or any request involving visual quality, usability, or design decisions for web or mobile interfaces. This skill complements frontend-design by adding a principled design evaluation layer rooted in the work of the field's most influential practitioners.
 ---
 
